@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["knapo@knapo.net", "engineering@renofi.com"]
 
   spec.summary       = %q{Page-based kaminari pagination for graphql.}
-  spec.description   = %q{Implements page-based pagination for graphql returning collection and pagination metadata.}
+  spec.description   = %q{Page-based kaminari pagination for graphql returning collection and pagination metadata.}
   spec.homepage      = "https://github.com/RenoFi/graphql-pagination"
   spec.license       = "MIT"
 
