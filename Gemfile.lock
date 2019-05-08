@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    graphql-pagination (0.1.0)
-      graphql
+    graphql-pagination (0.2.0)
+      graphql (~> 1.9.4)
 
 GEM
   remote: https://rubygems.org/
