@@ -1,0 +1,4 @@
+example_id                             | status | run_time        |
+-------------------------------------- | ------ | --------------- |
+./spec/graphql_pagination_spec.rb[1:1] | passed | 0.0005 seconds  |
+./spec/graphql_pagination_spec.rb[1:2] | failed | 0.01087 seconds |
