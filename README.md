@@ -1,3 +1,8 @@
+
+[![Gem Version](https://badge.fury.io/rb/graphql-pagination.png)][gem_version]
+
+[gem_version]: https://rubygems.org/gems/a9n
+
 # graphql-pagination
 
 Implements page-based pagination returning collection and pagination metadata. It works with `kaminari` or other pagination tools implementing similar methods.
