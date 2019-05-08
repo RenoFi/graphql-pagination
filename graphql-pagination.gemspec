@@ -25,8 +25,10 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "graphql"
 
+  spec.add_development_dependency "kaminari-core"
   spec.add_development_dependency "kaminari-activerecord"
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
+  spec.add_development_dependency "pry"
 end
