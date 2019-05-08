@@ -54,7 +54,7 @@ Value returned by query resolver must be a kaminari object or implements its pag
 ```json
 {
   "data": {
-    "checklists": {
+    "fruits": {
       "collection": [
         {
           "id": "93938bb3-7a6c-4d35-9961-cbb2d4c9e9ac",
