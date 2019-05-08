@@ -1,4 +1,7 @@
+
 [![Gem Version](https://badge.fury.io/rb/graphql-pagination.png)][gem_version]
+
+[gem_version]: https://rubygems.org/gems/a9n
 
 # graphql-pagination
 
