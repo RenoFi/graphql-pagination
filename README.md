@@ -1,6 +1,6 @@
 
 [![Build Status](https://travis-ci.org/RenoFi/graphql-pagination.svg?branch=master)](https://travis-ci.org/RenoFi/graphql-pagination)
-[![Gem Version](https://badge.fury.io/rb/graphql-pagination.png)](https://rubygems.org/gems/graphql-pagination)
+[![Gem Version](https://badge.fury.io/rb/graphql-pagination.svg)](https://rubygems.org/gems/graphql-pagination)
 
 # graphql-pagination
 
