@@ -49,7 +49,7 @@ Value returned by query resolver must be a kaminari object or implements its pag
 }
 ```
 
-```json
+```
 {
   'data': {
     'checklists': {
