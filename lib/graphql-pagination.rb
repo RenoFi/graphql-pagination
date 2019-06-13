@@ -1,1 +1,1 @@
-require_relative 'graphql_pagination'
+require 'graphql_pagination'

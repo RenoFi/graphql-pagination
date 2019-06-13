@@ -1,8 +1,8 @@
 RSpec.describe GraphqlPagination::CollectionType do
-  describe ".collection_type" do
+  describe '.collection_type' do
     let(:type) do
       Class.new(GraphQL::Schema::Object) do
-        graphql_name "Fruit"
+        graphql_name 'Fruit'
       end
     end
 

@@ -1,0 +1,62 @@
+Gemspec/RequiredRubyVersion:
+  Include:
+    - 2.4
+    - 2.5
+    - 2.6
+
+Lint/UnusedBlockArgument:
+  Enabled: false
+
+Layout/AlignHash:
+  Enabled: false
+
+Naming/FileName:
+  Enabled: false
+
+Metrics/BlockLength:
+  Max: 30
+  Exclude:
+    - '**/*_spec.rb'
+
+Metrics/LineLength:
+  Max: 140
+
+Metrics/MethodLength:
+  Max: 20
+
+Security/YAMLLoad:
+  Enabled: false
+
+Style/BlockDelimiters:
+  EnforcedStyle: braces_for_chaining
+
+Style/Documentation:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/EachWithObject:
+  Enabled: false
+
+Style/MethodMissingSuper:
+  Enabled: false
+
+Style/MissingRespondToMissing:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+Style/RescueStandardError:
+  Exclude:
+    - 'spec/*.rb'
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+Style/TrivialAccessors:
+  Enabled: false

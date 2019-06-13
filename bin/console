@@ -1,7 +1,8 @@
 #!/usr/bin/env ruby
 
-require "bundler/setup"
-require "graphql-pagination"
+require 'bundler/setup'
+require 'rack_graphql'
+require 'pry'
+require 'irb'
 
-require "irb"
 IRB.start(__FILE__)

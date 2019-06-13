@@ -1,6 +1,6 @@
+[![Gem Version](https://badge.fury.io/rb/graphql-pagination.png)][gem_version]
 
-[![Build Status](https://travis-ci.org/RenoFi/graphql-pagination.svg?branch=master)](https://travis-ci.org/RenoFi/graphql-pagination)
-[![Gem Version](https://badge.fury.io/rb/graphql-pagination.svg)](https://rubygems.org/gems/graphql-pagination)
+[gem_version]: https://rubygems.org/gems/graphql-pagination
 
 # graphql-pagination
 
@@ -52,23 +52,23 @@ Value returned by query resolver must be a kaminari object or implements its pag
 
 ```json
 {
-  "data": {
-    "fruits": {
-      "collection": [
+  'data': {
+    'checklists': {
+      'collection': [
         {
-          "id": "93938bb3-7a6c-4d35-9961-cbb2d4c9e9ac",
-          "name": "Apple"
+          'id': '93938bb3-7a6c-4d35-9961-cbb2d4c9e9ac',
+          'name': 'Apple'
         },
         {
-          "id": "b1ee93b2-579a-4107-8454-119bba5afb63",
-          "name": "Mango"
+          'id': 'b1ee93b2-579a-4107-8454-119bba5afb63',
+          'name': 'Mango'
         }
       ],
-      "metadata": {
-        "totalPages": 25,
-        "totalCount": 50,
-        "currentPage": 2,
-        "limitValue": 2
+      'metadata': {
+        'totalPages': 25,
+        'totalCount': 50,
+        'currentPage': 2,
+        'limitValue': 2
       }
     }
   }

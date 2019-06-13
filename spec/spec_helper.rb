@@ -1,7 +1,7 @@
-require "bundler/setup"
-require "pry"
-require "graphql-pagination"
-require "kaminari/core"
+require 'bundler/setup'
+require 'pry'
+require 'graphql-pagination'
+require 'kaminari/core'
 
 RSpec.configure do |config|
   config.disable_monkey_patching!
@@ -17,7 +17,7 @@ end
 
 class FruitModel
   def self.all
-    items = (0..10).map { |i| OpenStruct.new(id: SecureRandom.uuid, name: "Apple #{i}") }
+    items = (0..10).map { |i| OpenStruct.new(id: SecureRandom.uuid, name: "Mango #{i}") }
     ::Kaminari.paginate_array(items)
   end
 end
