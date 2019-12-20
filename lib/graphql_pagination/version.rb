@@ -1,3 +1,3 @@
 module GraphqlPagination
-  VERSION = '0.2.3'.freeze
+  VERSION = '1.0.0'.freeze
 end
