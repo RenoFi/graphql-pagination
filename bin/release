@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+lib = File.expand_path('../lib', __dir__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'graphql_pagination/version'
+
+system("bundle") || exit(1)
+system("bundle exec rake") || exit(1)
+system("git commit -am 'Release #{GraphqlPagination::VERSION}'")
+system("bundle exec rake build release")
