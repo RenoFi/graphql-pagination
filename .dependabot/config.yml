@@ -1,0 +1,18 @@
+version: 1
+
+update_configs:
+  - package_manager: "ruby:bundler"
+    directory: "/"
+    update_schedule: "monthly"
+    commit_message:
+      prefix: "[dependabot]"
+    allowed_updates:
+      - match:
+          update_type: "all"
+    automerged_updates:
+      - match:
+          dependency_type: "development"
+          update_type: "all"
+      - match:
+          dependency_type: "production"
+          update_type: "all"
