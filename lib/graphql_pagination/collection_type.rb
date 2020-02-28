@@ -1,6 +1,6 @@
 module GraphqlPagination
   module CollectionType
-    def collection_type
+    def collection_type(metadata_type: GraphqlPagination::CollectionMetadataType)
       @collection_type ||= begin
         type_name = "#{graphql_name}Collection"
         source_type = self
@@ -8,7 +8,7 @@ module GraphqlPagination
         Class.new(GraphQL::Schema::Object) do
           graphql_name type_name
           field :collection, [source_type], null: false
-          field :metadata, GraphqlPagination::CollectionMetadataType, null: false
+          field :metadata, metadata_type, null: false
 
           def collection
             object
