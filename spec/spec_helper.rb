@@ -30,8 +30,8 @@ class VegetableModel
 end
 
 class FruitType < GraphQL::Schema::Object
-  field :id,          ID,     null: false
-  field :name,        String, null: false
+  field :id, ID, null: false
+  field :name, String, null: false
 end
 
 class VegetableType < GraphQL::Schema::Object
@@ -63,7 +63,7 @@ class TestQueryType < GraphQL::Schema::Object
   def fruits(page: nil, limit: nil)
     FruitModel.all.page(page).per(limit)
   end
-  
+
   def vegetables(page: nil, limit: nil)
     results = VegetableModel.all.page(page).per(limit)
     results.extend(CustomField)
