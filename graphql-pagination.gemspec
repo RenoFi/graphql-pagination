@@ -23,9 +23,9 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.required_ruby_version = '>= 2.5'
+  spec.required_ruby_version = '>= 2.6'
 
-  spec.add_dependency 'graphql', '>= 1.9.4', '< 1.11.0'
+  spec.add_dependency 'graphql', '~> 1.9'
 
   spec.add_development_dependency 'kaminari-activerecord'
   spec.add_development_dependency 'kaminari-core'
@@ -34,4 +34,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'rubocop'
   spec.add_development_dependency 'rubocop-performance'
+  spec.add_development_dependency 'rubocop-rspec'
 end

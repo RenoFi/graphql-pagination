@@ -59,7 +59,7 @@ RSpec.describe 'query spec' do
     end
   end
 
-  context "custom metadata type" do
+  context 'with custom metadata type' do
     let(:query) do
       %|{
         result: vegetables {
@@ -79,8 +79,6 @@ RSpec.describe 'query spec' do
     end
 
     it do
-      result = TestSchema.execute(query).to_h["data"]["result"]
-      # binding.pry
       expect(result["collection"].size).to eq(11)
       expect(result["collection"][0]["id"]).not_to be_empty
       expect(result["collection"][0]["name"]).not_to be_empty

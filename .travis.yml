@@ -3,8 +3,8 @@ sudo: false
 language: ruby
 cache: bundler
 rvm:
-  - 2.5
   - 2.6
 before_install: gem install bundler
 script:
-  - bundle exec rake
+  - bundle exec rake spec
+  - bundle exec rake rubocop

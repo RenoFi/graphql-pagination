@@ -1,11 +1,13 @@
 require:
   - rubocop-performance
+  - rubocop-rspec
 
 inherit_from:
   - https://raw.githubusercontent.com/RenoFi/rubocop/master/0.80.yml
+  - https://raw.githubusercontent.com/RenoFi/rubocop/master/rspec.yml
 
 AllCops:
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 2.6
 
 Naming/FileName:
   Exclude:
