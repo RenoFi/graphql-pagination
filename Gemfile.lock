@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    graphql-pagination (1.1.0)
+    graphql-pagination (1.1.1)
       graphql (~> 1.9)
 
 GEM
@@ -68,7 +68,7 @@ GEM
       rubocop (>= 0.68.1)
     ruby-progressbar (1.10.1)
     thread_safe (0.3.6)
-    tzinfo (1.2.6)
+    tzinfo (1.2.7)
       thread_safe (~> 0.1)
     unicode-display_width (1.7.0)
     zeitwerk (2.3.0)
@@ -88,4 +88,4 @@ DEPENDENCIES
   rubocop-rspec
 
 BUNDLED WITH
-   2.0.2
+   2.1.4
