@@ -3,7 +3,7 @@ require:
   - rubocop-rspec
 
 inherit_from:
-  - https://raw.githubusercontent.com/RenoFi/rubocop/master/0.81.yml
+  - https://raw.githubusercontent.com/RenoFi/rubocop/master/ruby.yml
   - https://raw.githubusercontent.com/RenoFi/rubocop/master/rspec.yml
 
 AllCops:
