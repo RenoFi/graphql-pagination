@@ -3,8 +3,8 @@ require:
   - rubocop-rspec
 
 inherit_from:
-  - https://raw.githubusercontent.com/RenoFi/rubocop/master/ruby.yml
-  - https://raw.githubusercontent.com/RenoFi/rubocop/master/rspec.yml
+  - https://raw.githubusercontent.com/RenoFi/rubocop/main/ruby.yml
+  - https://raw.githubusercontent.com/RenoFi/rubocop/main/rspec.yml
 
 AllCops:
   NewCops: enable
