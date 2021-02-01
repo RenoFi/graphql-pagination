@@ -30,7 +30,7 @@ GEM
       kaminari-core (= 1.2.1)
     kaminari-core (1.2.1)
     method_source (1.0.0)
-    minitest (5.14.2)
+    minitest (5.14.3)
     parallel (1.20.1)
     parser (2.7.2.0)
       ast (~> 2.4.1)
