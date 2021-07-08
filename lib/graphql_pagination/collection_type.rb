@@ -1,7 +1,8 @@
 module GraphqlPagination
   module CollectionType
     def collection_type(metadata_type: GraphqlPagination::CollectionMetadataType)
-      @collection_type ||= begin
+      @collection_types ||= {}
+      @collection_types[metadata_type] ||= begin
         type_name = "#{graphql_name}Collection"
         source_type = self
 
