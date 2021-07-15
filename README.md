@@ -22,7 +22,7 @@ Add `graphql-pagination` to your Gemfile, you can use `kaminari-activerecord` or
     argument :limit, Integer, required: false
   end
 
-  def fruit(page: nil, limit: nil)
+  def fruits(page: nil, limit: nil)
     ::Fruit.page(page).per(limit)
   end
 ```
