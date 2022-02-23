@@ -7,7 +7,7 @@ Implements page-based pagination returning collection and pagination metadata. I
 
 ## Installation
 
-Add `graphql-pagination` to your Gemfile, you can use `kaminari-activerecord` or `kaminari-monogid` to not implement page scope methods. Kaminari is not loaded by the gem, so you need to decide anmd load it on your own.
+Add `graphql-pagination` to your Gemfile, you can use `kaminari-activerecord` or `kaminari-monogid` to not implement page scope methods. Kaminari is not loaded by the gem, so you need to decide and load it on your own.
 
 ```ruby
   gem 'graphql-pagination'
