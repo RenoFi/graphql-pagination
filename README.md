@@ -1,3 +1,4 @@
+
 [![Gem Version](https://badge.fury.io/rb/graphql-pagination.svg)](https://rubygems.org/gems/graphql-pagination)
 [![Build Status](https://github.com/RenoFi/graphql-pagination/actions/workflows/ci.yml/badge.svg)](https://github.com/RenoFi/graphql-pagination/actions/workflows/ci.yml?query=branch%3Amain)
 
