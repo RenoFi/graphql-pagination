@@ -73,6 +73,25 @@ Value returned by query resolver must be a kaminari object or implements its pag
 }
 ```
 
+## Custom Base
+
+By default the resulting collection_type class is a direct descendant of
+graphql-ruby's GraphQL::Schema::Object, however you may require your own
+behaviours and properties on the collection class itself such as defining
+[custom visibility](https://graphql-ruby.org/authorization/visibility.html#object-visibility).
+
+This can be done by passing in your own custom class, to be inherited from:
+
+```ruby
+class MyBaseType < GraphQL::Schema::Object
+  def self.visible?(context)
+    # ...
+  end
+end
+
+field :fruits, Types::FruitType.collection_type(collection_base: MyBaseType)
+```
+
 ## Custom Metadata
 
 By default, the following fields are present in the metadata block:
