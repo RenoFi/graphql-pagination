@@ -1,4 +1,4 @@
-name: automerge
+name: automerge-dependencies
 on:
   pull_request_review:
     types:
@@ -6,12 +6,15 @@ on:
   check_suite:
     types:
       - completed
+  label:
+    types:
+      - created
   status: {}
 jobs:
   automerge:
     runs-on: ubuntu-latest
     steps:
-      - name: automerge
+      - name: automerge-dependencies
         uses: pascalgn/automerge-action@v0.14.3
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
