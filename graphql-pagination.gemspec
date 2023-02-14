@@ -27,13 +27,4 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 3.0'
 
   spec.add_dependency 'graphql', '~> 2.0'
-
-  spec.add_development_dependency 'kaminari-activerecord'
-  spec.add_development_dependency 'kaminari-core'
-  spec.add_development_dependency 'pry'
-  spec.add_development_dependency 'rake'
-  spec.add_development_dependency 'rspec'
-  spec.add_development_dependency 'rubocop'
-  spec.add_development_dependency 'rubocop-rake'
-  spec.add_development_dependency 'rubocop-rspec'
 end
