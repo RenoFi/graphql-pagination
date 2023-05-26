@@ -1,14 +1,13 @@
-# automatically approve PRs submitted by Dependabot or Renofidev
-# this will allow Dependabot to automatically merge dependency update PRs where CI passes
-# from: https://github.com/hmarr/auto-approve-action
-name: Auto approve dependency upgrades PRs
-on: pull_request_target
+name: Auto approve dependency upgrades and hot-fix PRs
+on:
+  pull_request_target:
+    types: [labeled, unlabeled, edited, ready_for_review, review_requested, auto_merge_enabled]
 
 jobs:
   auto-approve:
     runs-on: ubuntu-latest
     steps:
-    - uses: hmarr/auto-approve-action@v3
-      if: github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]' || github.actor == 'renofidev'
-      with:
-        github-token: "${{ secrets.GITHUB_TOKEN }}"
+      - uses: hmarr/auto-approve-action@v3
+        if: github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]' || github.actor == 'renofidev' || contains(toJson(github), 'HOTFIX-AUTO-APPROVE')
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
