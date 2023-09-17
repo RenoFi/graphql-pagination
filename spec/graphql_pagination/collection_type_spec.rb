@@ -8,8 +8,12 @@ RSpec.describe GraphqlPagination::CollectionType do
       end
     end
 
-    it do
+    it "has expected fields" do
       expect(collection_type.fields.keys).to match_array(%w[collection metadata])
+    end
+
+    it "has description" do
+      expect(collection_type.description).to be_present
     end
 
     context "with custom metadata type" do
@@ -31,6 +35,10 @@ RSpec.describe GraphqlPagination::CollectionType do
       it "caches the type for future use" do
         expect(custom_collection_type).to be(type.collection_type(metadata_type: metadata_type))
       end
+
+      it "has description" do
+        expect(custom_collection_type.fields['metadata'].description).to be_present
+      end
     end
 
     context "with custom collection base" do
@@ -51,6 +59,10 @@ RSpec.describe GraphqlPagination::CollectionType do
 
         expect(collection_type.fields.keys).not_to include('foo')
         expect(custom_collection_type.fields.keys).to include('foo')
+      end
+
+      it "has description" do
+        expect(custom_collection_type.fields['collection'].description).to be_present
       end
 
       it "caches the type for future use" do

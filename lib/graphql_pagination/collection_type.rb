@@ -14,6 +14,7 @@ module GraphqlPagination
 
         Class.new(collection_base) do
           graphql_name type_name
+          description "#{graphql_name} type"
           field :collection, [source_type], null: false, description: "A collection of paginated #{graphql_name}"
           field :metadata, metadata_type, null: false, description: "Pagination Metadata for navigating the Pagination"
 
