@@ -8,6 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: hmarr/auto-approve-action@v3
-        if: github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]' || github.actor == 'renofidev' || contains(toJson(github), 'AUTO-APPROVE')
+        if: github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]' || github.actor == 'renofidev' || contains(toJson(github), 'HOTFIX-AUTO-APPROVE')
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
