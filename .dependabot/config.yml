@@ -1,19 +1,15 @@
-version: 1
+version: 2
 
-update_configs:
-  - package_manager: "ruby:bundler"
+updates:
+  - package-ecosystem: "bundler"
     directory: "/"
-    update_schedule: "daily"
-    commit_message:
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "08:00"
+      timezone: "UTC"
+    commit-message:
       prefix: "[dependabot]"
-    allowed_updates:
-      - match:
-          dependency_type: "all"
-          update_type: "security"
-    automerged_updates:
-      - match:
-          dependency_type: "all"
-          update_type: "security:patch"
     labels:
       - "automerge"
       - "dependencies"
