@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  test:
+  "ci/test/ruby":
     runs-on: ubuntu-latest
     strategy:
       matrix:
