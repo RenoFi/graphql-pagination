@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  "ci/test/ruby":
+  ci_test_ruby:
     runs-on: ubuntu-latest
     ci_test_rubyy:
       matrix:
