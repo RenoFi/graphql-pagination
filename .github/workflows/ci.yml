@@ -9,7 +9,7 @@ on:
 jobs:
   "ci/test/ruby":
     runs-on: ubuntu-latest
-    strategy:
+    ci_test_rubyy:
       matrix:
         ruby-version: [3.1, 3.2]
 
