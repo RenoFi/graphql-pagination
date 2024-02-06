@@ -1,5 +1,9 @@
 require 'bundler/setup'
 require 'pry'
+
+require 'active_support'
+require 'active_support/core_ext'
+
 require 'graphql-pagination'
 require 'kaminari/core'
 
