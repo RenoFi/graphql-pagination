@@ -17,14 +17,14 @@ Gem::Specification.new do |spec|
   spec.metadata['source_code_uri'] = 'https://github.com/RenoFi/graphql-pagination'
   spec.metadata['rubygems_mfa_required'] = 'true'
 
+  spec.required_ruby_version = Gem::Requirement.new('>= 3.1.0')
+
   spec.files = Dir.chdir(__dir__) do
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(bin/|spec/|\.rub)}) }
   end
   spec.bindir = 'exe'
   spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
-
-  spec.required_ruby_version = '>= 3.0'
 
   spec.add_dependency 'graphql', '~> 2.0'
 end

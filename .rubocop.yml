@@ -8,12 +8,13 @@ inherit_from:
 
 AllCops:
   NewCops: enable
-  TargetRubyVersion: 3.0
+  TargetRubyVersion: 3.1
 
 Gemspec/RequiredRubyVersion:
   Include:
-    - 3.0
     - 3.1
+    - 3.2
+    - 3.3
 
 Naming/FileName:
   Exclude:
