@@ -18,7 +18,7 @@ RSpec.describe GraphqlPagination::CollectionType do
 
     context "with custom metadata type" do
       let(:collection_type) { type.collection_type }
-      let(:custom_collection_type) { type.collection_type(metadata_type: metadata_type) }
+      let(:custom_collection_type) { type.collection_type(metadata_type:) }
 
       let(:metadata_type) do
         Class.new(GraphqlPagination::CollectionMetadataType) do
@@ -33,7 +33,7 @@ RSpec.describe GraphqlPagination::CollectionType do
       end
 
       it "caches the type for future use" do
-        expect(custom_collection_type).to be(type.collection_type(metadata_type: metadata_type))
+        expect(custom_collection_type).to be(type.collection_type(metadata_type:))
       end
 
       it "has description" do
@@ -51,7 +51,7 @@ RSpec.describe GraphqlPagination::CollectionType do
       end
 
       let(:collection_type) { type.collection_type }
-      let(:custom_collection_type) { type.collection_type(collection_base: collection_base) }
+      let(:custom_collection_type) { type.collection_type(collection_base:) }
 
       it "returns an appropriate collection type based on collection_base argument" do
         expect(collection_type.visible?(nil)).to be true
@@ -66,7 +66,7 @@ RSpec.describe GraphqlPagination::CollectionType do
       end
 
       it "caches the type for future use" do
-        expect(custom_collection_type).to be(type.collection_type(collection_base: collection_base))
+        expect(custom_collection_type).to be(type.collection_type(collection_base:))
       end
 
       context "when collection_base is not a GraphQL::Schema::Object" do
