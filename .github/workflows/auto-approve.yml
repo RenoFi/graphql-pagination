@@ -1,8 +1,9 @@
 name: Auto approve dependency upgrades and hot-fix PRs
 on:
   pull_request_target:
-    types: [labeled, unlabeled, edited, ready_for_review, review_requested, auto_merge_enabled]
-
+    types:
+      - labeled
+      - ready_for_review
 jobs:
   auto-approve:
     runs-on: ubuntu-latest

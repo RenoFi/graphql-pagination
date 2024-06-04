@@ -6,9 +6,6 @@ on:
   check_suite:
     types:
       - completed
-  label:
-    types:
-      - created
   status: {}
 jobs:
   automerge:
