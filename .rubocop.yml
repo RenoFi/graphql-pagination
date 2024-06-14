@@ -7,7 +7,6 @@ inherit_from:
   - https://raw.githubusercontent.com/RenoFi/rubocop/main/rspec.yml
 
 AllCops:
-  NewCops: enable
   TargetRubyVersion: 3.2
 
 Gemspec/RequiredRubyVersion:
