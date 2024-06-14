@@ -9,6 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: hmarr/auto-approve-action@v3
-        if: github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]' || github.actor == 'renofidev' || contains(github.event.pull_request.labels.*.name, 'HOTFIself-approve') || contains(github.event.pull_request.labels.*.name, 'dependencies')
+        if: github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]' || github.actor == 'renofidev' || contains(github.event.pull_request.labels.*.name, 'HOTFIX-AUTO-APPROVE') || contains(github.event.pull_request.labels.*.name, 'dependencies')
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
