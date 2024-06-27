@@ -1,0 +1,15 @@
+version: 2
+
+updates:
+  - package-ecosystem: "bundler"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "08:00"
+      timezone: "UTC"
+    commit-message:
+      prefix: "[dependabot]"
+    labels:
+      - "automerge"
+      - "dependencies"
