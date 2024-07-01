@@ -31,7 +31,7 @@ GEM
     connection_pool (2.4.1)
     diff-lcs (1.5.1)
     drb (2.2.1)
-    graphql (2.3.5)
+    graphql (2.3.7)
       base64
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
