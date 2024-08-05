@@ -1,5 +1,8 @@
 name: automerge
 on:
+  pull_request_target:
+    types:
+      - labeled
   pull_request_review:
     types:
       - submitted
@@ -12,8 +15,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: automerge
-        uses: pascalgn/automerge-action@v0.16.2
+        uses: pascalgn/automerge-action@v0.16.3
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           MERGE_METHOD: squash
           MERGE_DELETE_BRANCH: true
+          MERGE_LABELS: "automerge,!automerge blocked"
+      - name: automerge-dependencies
+        uses: pascalgn/automerge-action@v0.16.3
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          MERGE_METHOD: squash
+          MERGE_DELETE_BRANCH: true
+          MERGE_LABELS: "dependencies,!automerge blocked"
+          MERGE_REMOVE_LABELS: ""
