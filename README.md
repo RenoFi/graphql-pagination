@@ -16,6 +16,8 @@ Add `graphql-pagination` to your Gemfile, you can use `kaminari-activerecord` or
 
 ## Usage example
 
+Use `collection_type` instead of `connection_type` to define your type:
+
 ```ruby
   field :fruits, Types::FruitType.collection_type, null: true do
     argument :page, Integer, required: false
