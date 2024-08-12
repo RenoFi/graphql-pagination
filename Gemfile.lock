@@ -31,8 +31,10 @@ GEM
     connection_pool (2.4.1)
     diff-lcs (1.5.1)
     drb (2.2.1)
-    graphql (2.3.10)
+    fiber-storage (1.0.0)
+    graphql (2.3.12)
       base64
+      fiber-storage
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
     json (2.7.2)
