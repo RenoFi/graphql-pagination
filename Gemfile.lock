@@ -35,7 +35,7 @@ GEM
     diff-lcs (1.5.1)
     drb (2.2.1)
     fiber-storage (1.0.0)
-    graphql (2.4.1)
+    graphql (2.4.2)
       base64
       fiber-storage
     i18n (1.14.6)
