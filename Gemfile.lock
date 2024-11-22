@@ -36,7 +36,7 @@ GEM
     diff-lcs (1.5.1)
     drb (2.2.1)
     fiber-storage (1.0.0)
-    graphql (2.4.3)
+    graphql (2.4.4)
       base64
       fiber-storage
     i18n (1.14.6)
@@ -49,12 +49,12 @@ GEM
     language_server-protocol (3.17.0.3)
     logger (1.6.1)
     method_source (1.1.0)
-    minitest (5.25.1)
+    minitest (5.25.2)
     parallel (1.26.3)
     parser (3.3.6.0)
       ast (~> 2.4.1)
       racc
-    pry (0.14.2)
+    pry (0.15.0)
       coderay (~> 1.1)
       method_source (~> 1.0)
     racc (1.8.1)
