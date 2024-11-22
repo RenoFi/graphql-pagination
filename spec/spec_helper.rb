@@ -1,6 +1,7 @@
 require 'bundler/setup'
 require 'pry'
 
+require 'ostruct'
 require 'active_support'
 require 'active_support/core_ext'
 
