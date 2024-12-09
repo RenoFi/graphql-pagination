@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'bundler/setup'
-require 'rack_graphql'
+require 'graphql_pagination'
 require 'pry'
 require 'irb'
 
