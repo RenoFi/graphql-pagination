@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    graphql-pagination (2.2.0)
+    graphql-pagination (2.3.0)
       graphql (>= 2.4.7)
 
 GEM
