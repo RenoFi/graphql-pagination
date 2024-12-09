@@ -1,6 +1,6 @@
 require 'graphql_pagination/version'
 require 'graphql'
-require 'graphql/schema/object'
+require 'graphql/schema'
 
 module GraphqlPagination
 end
