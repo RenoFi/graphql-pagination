@@ -7,13 +7,13 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (8.0.0)
-      activesupport (= 8.0.0)
-    activerecord (8.0.0)
-      activemodel (= 8.0.0)
-      activesupport (= 8.0.0)
+    activemodel (8.0.1)
+      activesupport (= 8.0.1)
+    activerecord (8.0.1)
+      activemodel (= 8.0.1)
+      activesupport (= 8.0.1)
       timeout (>= 0.4.0)
-    activesupport (8.0.0)
+    activesupport (8.0.1)
       base64
       benchmark (>= 0.3)
       bigdecimal
@@ -36,7 +36,7 @@ GEM
     diff-lcs (1.5.1)
     drb (2.2.1)
     fiber-storage (1.0.0)
-    graphql (2.4.7)
+    graphql (2.4.8)
       base64
       fiber-storage
     i18n (1.14.6)
@@ -47,7 +47,7 @@ GEM
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
     language_server-protocol (3.17.0.3)
-    logger (1.6.2)
+    logger (1.6.3)
     method_source (1.1.0)
     minitest (5.25.4)
     parallel (1.26.3)
@@ -88,11 +88,11 @@ GEM
       parser (>= 3.3.1.0)
     rubocop-rake (0.6.0)
       rubocop (~> 1.0)
-    rubocop-rspec (3.2.0)
+    rubocop-rspec (3.3.0)
       rubocop (~> 1.61)
     ruby-progressbar (1.13.0)
-    securerandom (0.4.0)
-    timeout (0.4.2)
+    securerandom (0.4.1)
+    timeout (0.4.3)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (3.1.2)
