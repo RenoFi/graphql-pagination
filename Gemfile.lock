@@ -41,7 +41,7 @@ GEM
       logger
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
-    json (2.15.2)
+    json (2.16.0)
     kaminari-activerecord (1.2.2)
       activerecord
       kaminari-core (= 1.2.2)
@@ -50,7 +50,7 @@ GEM
     lint_roller (1.1.0)
     logger (1.7.0)
     method_source (1.1.0)
-    minitest (5.26.0)
+    minitest (5.26.1)
     openssl (3.3.2)
     parallel (1.27.0)
     parser (3.3.10.0)
@@ -73,11 +73,11 @@ GEM
     rspec-expectations (3.13.5)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
-    rspec-mocks (3.13.6)
+    rspec-mocks (3.13.7)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-support (3.13.6)
-    rubocop (1.81.6)
+    rubocop (1.81.7)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)
@@ -88,15 +88,15 @@ GEM
       rubocop-ast (>= 1.47.1, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 4.0)
-    rubocop-ast (1.47.1)
+    rubocop-ast (1.48.0)
       parser (>= 3.3.7.2)
       prism (~> 1.4)
     rubocop-rake (0.7.1)
       lint_roller (~> 1.1)
       rubocop (>= 1.72.1)
-    rubocop-rspec (3.7.0)
+    rubocop-rspec (3.8.0)
       lint_roller (~> 1.1)
-      rubocop (~> 1.72, >= 1.72.1)
+      rubocop (~> 1.81)
     ruby-progressbar (1.13.0)
     securerandom (0.4.1)
     timeout (0.4.4)
@@ -105,7 +105,7 @@ GEM
     unicode-display_width (3.2.0)
       unicode-emoji (~> 4.1)
     unicode-emoji (4.1.0)
-    uri (1.0.4)
+    uri (1.1.1)
 
 PLATFORMS
   aarch64-linux-musl
@@ -129,4 +129,4 @@ DEPENDENCIES
   rubocop-rspec
 
 BUNDLED WITH
-   2.6.9
+   2.7.2
