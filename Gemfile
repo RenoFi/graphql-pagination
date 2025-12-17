@@ -4,7 +4,7 @@ gemspec
 
 gem 'kaminari-activerecord'
 gem 'kaminari-core'
-gem 'openssl'
+gem 'openssl', '~> 3.2'
 gem 'pry'
 gem 'rake'
 gem 'rspec'

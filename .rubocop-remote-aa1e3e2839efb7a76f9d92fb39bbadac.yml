@@ -1,0 +1,211 @@
+AllCops:
+  NewCops: enable
+  SuggestExtensions: false
+
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/CaseIndentation:
+  EnforcedStyle: end
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+
+Layout/EmptyLinesAroundBlockBody:
+  Exclude:
+    - '**/*_spec.rb'
+    - 'db/*.rb'
+
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
+
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: variable
+
+Layout/ExtraSpacing:
+  AllowForAlignment: false
+
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/HashAlignment:
+  Enabled: false
+
+Lint/DuplicateBranch:
+  IgnoreLiteralBranches: true,
+  IgnoreConstantBranches: true
+
+Layout/LineLength:
+  Max: 160
+  Exclude:
+    - 'db/schema.rb'
+
+Layout/MultilineMethodCallBraceLayout:
+  Exclude:
+    - '**/*_spec.rb'
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/ParameterAlignment:
+  EnforcedStyle: with_fixed_indentation
+  Exclude:
+    - '**/*_spec.rb'
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    # so we can write expect { action }.not_to change { obj }
+    - '**/*_spec.rb'
+
+Lint/Debugger:
+  Exclude:
+    - 'spec/spec_helper.rb'
+
+Lint/EmptyBlock:
+  Enabled: false
+
+Lint/UnusedBlockArgument:
+  Enabled: false
+
+Lint/UselessDefaultValueArgument:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 50
+  Exclude:
+    - 'db/**/*.rb'
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/ClassLength:
+  Max: 300
+  Exclude:
+    - 'graphql/types/query_type.rb'
+    - 'db/**/*.rb'
+
+Metrics/CyclomaticComplexity:
+  Max: 20
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Max: 200
+
+Metrics/ParameterLists:
+  Max: 10
+
+Metrics/PerceivedComplexity:
+  Max: 15
+
+Naming/AccessorMethodName:
+  Enabled: false
+
+Naming/InclusiveLanguage:
+  Enabled: false
+
+Naming/PredicateMethod:
+  Enabled: false
+
+Naming/PredicatePrefix:
+  Enabled: false
+
+Naming/VariableNumber:
+  Enabled: false
+
+Naming/MethodParameterName:
+  Enabled: true
+  MinNameLength: 2
+  AllowedNames:
+    - _
+
+Style/Alias:
+  # prefers alias_method over alias
+  EnforcedStyle: prefer_alias_method
+
+Style/BlockDelimiters:
+  Exclude:
+    - '**/*_spec.rb'
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyMethod:
+  Enabled: false
+
+Style/FetchEnvVar:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/HashEachMethods:
+  Enabled: false
+
+Style/HashSyntax:
+  Enabled: true
+  EnforcedShorthandSyntax: always
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false
+
+Style/MixinUsage:
+  Exclude:
+    - 'bin/*'
+    - 'Rakefile'
+
+Style/NumericLiterals:
+  Exclude:
+    - 'db/*.rb'
+
+Style/NumericPredicate:
+  EnforcedStyle: comparison
+
+Style/PercentLiteralDelimiters:
+  Exclude:
+    - 'spec/**/*_spec.rb'
+
+Style/RedundantConstantBase:
+  Enabled: false
+
+Style/OpenStructUse:
+  Enabled: false
+
+Style/RedundantArgument:
+  Enabled: false
+
+Style/RescueStandardError:
+  Exclude:
+    - 'spec/**/*.rb'
+
+Style/SafeNavigationChainLength:
+  Max: 3
+
+Style/SignalException:
+  EnforcedStyle: semantic
+
+Style/SpecialGlobalVars:
+  EnforcedStyle: use_english_names
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/TrailingCommaInArrayLiteral:
+  Enabled: false
+
+Style/TrailingCommaInHashLiteral:
+  Enabled: false
+
+Style/TrailingCommaInArguments:
+  Enabled: false
+
+Style/WordArray:
+  Exclude:
+    - 'db/**/*.rb'
