@@ -54,6 +54,7 @@ GEM
     minitest (6.0.1)
       prism (~> 1.5)
     openssl (3.3.2)
+    ostruct (0.6.3)
     parallel (1.27.0)
     parser (3.3.10.1)
       ast (~> 2.4.1)
@@ -126,6 +127,7 @@ DEPENDENCIES
   kaminari-activerecord
   kaminari-core
   openssl (~> 3.2)
+  ostruct
   pry
   rake
   rspec
