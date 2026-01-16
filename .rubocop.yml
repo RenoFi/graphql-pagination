@@ -7,12 +7,12 @@ inherit_from:
   - https://raw.githubusercontent.com/RenoFi/rubocop/main/rspec.yml
 
 AllCops:
-  TargetRubyVersion: 3.3
+  TargetRubyVersion: 3.4
 
 Gemspec/RequiredRubyVersion:
   Include:
-    - 3.3
     - 3.4
+    - 4.0
 
 Naming/FileName:
   Exclude:
