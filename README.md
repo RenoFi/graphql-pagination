@@ -16,6 +16,8 @@ Add `graphql-pagination` to your Gemfile, you can use `kaminari-activerecord` or
 
 ## Usage example
 
+### With Fields
+
 Use `collection_type` instead of `connection_type` to define your type:
 
 ```ruby
@@ -27,6 +29,28 @@ Use `collection_type` instead of `connection_type` to define your type:
   def fruits(page: nil, limit: nil)
     ::Fruit.page(page).per(limit)
   end
+```
+
+### With Resolvers
+
+You can also use `collection_type` with GraphQL resolvers:
+
+```ruby
+module Resolvers
+  class FruitsResolver < GraphQL::Schema::Resolver
+    type Types::FruitType.collection_type, null: false
+
+    argument :page, Integer, required: false
+    argument :limit, Integer, required: false
+
+    def resolve(page: nil, limit: nil)
+      ::Fruit.page(page).per(limit)
+    end
+  end
+end
+
+# In your query type
+field :fruits, resolver: Resolvers::FruitsResolver
 ```
 
 Value returned by query resolver must be a kaminari object or implements its page scope methods (`current_page`, `limit_value`, `total_count`, `total_pages`).
