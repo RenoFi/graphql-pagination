@@ -117,6 +117,56 @@ end
 field :fruits, Types::FruitType.collection_type(metadata_type: MyMetadataType)
 ```
 
+## Complexity Calculation
+
+To prevent loading too much data, GraphQL supports complexity calculation. This gem provides the `GraphqlPagination::CollectionField` module that can be prepended to your base field class to automatically calculate complexity for collection type fields.
+
+The complexity calculation takes into account:
+- The page size (from `limit` or `per` argument)
+- Metadata fields requested
+- Collection fields requested
+- Nested fields within collection items
+
+### Usage
+
+First, create a base field class and prepend the `GraphqlPagination::CollectionField` module:
+
+```ruby
+class Types::BaseField < GraphQL::Schema::Field
+  prepend GraphqlPagination::CollectionField
+end
+```
+
+Then configure your base object to use this field class:
+
+```ruby
+class Types::BaseObject < GraphQL::Schema::Object
+  field_class Types::BaseField
+end
+```
+
+Now all fields that return collection types will automatically have complexity calculation:
+
+```ruby
+class Types::QueryType < Types::BaseObject
+  field :fruits, Types::FruitType.collection_type, null: true do
+    argument :page, Integer, required: false
+    argument :limit, Integer, required: false
+  end
+
+  def fruits(page: nil, limit: nil)
+    ::Fruit.page(page).per(limit)
+  end
+end
+```
+
+The complexity will be calculated as:
+```
+1 (field itself) + (page_size * items_complexity) + metadata_complexity + collection_complexity
+```
+
+If no `limit` or `per` argument is provided, it will use the schema's default page size or fall back to 25 (Kaminari's default).
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/renofi/graphql-pagination. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
