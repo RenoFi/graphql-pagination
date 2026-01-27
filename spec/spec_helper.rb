@@ -34,12 +34,24 @@ class VegetableModel
   end
 end
 
+class BerryModel
+  def self.all
+    items = (0..10).map { |i| OpenStruct.new(id: SecureRandom.uuid, name: "Berry #{i}") }
+    ::Kaminari.paginate_array(items)
+  end
+end
+
 class FruitType < GraphQL::Schema::Object
   field :id, ID, null: false
   field :name, String, null: false
 end
 
 class VegetableType < GraphQL::Schema::Object
+  field :id, ID, null: false
+  field :name, String, null: false
+end
+
+class BerryType < GraphQL::Schema::Object
   field :id, ID, null: false
   field :name, String, null: false
 end
@@ -54,6 +66,17 @@ module CustomField
   end
 end
 
+class BerriesResolver < GraphQL::Schema::Resolver
+  type BerryType.collection_type, null: false
+
+  argument :page, Integer, required: false
+  argument :limit, Integer, required: false
+
+  def resolve(page: nil, limit: nil)
+    BerryModel.all.page(page).per(limit)
+  end
+end
+
 class TestQueryType < GraphQL::Schema::Object
   field :fruits, FruitType.collection_type, null: true do
     argument :page, Integer, required: false
@@ -64,6 +87,8 @@ class TestQueryType < GraphQL::Schema::Object
     argument :page, Integer, required: false
     argument :limit, Integer, required: false
   end
+
+  field :berries_resolver, resolver: BerriesResolver
 
   def fruits(page: nil, limit: nil)
     FruitModel.all.page(page).per(limit)

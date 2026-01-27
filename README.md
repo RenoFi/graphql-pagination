@@ -16,6 +16,8 @@ Add `graphql-pagination` to your Gemfile, you can use `kaminari-activerecord` or
 
 ## Usage example
 
+### With Fields
+
 Use `collection_type` instead of `connection_type` to define your type:
 
 ```ruby
@@ -27,6 +29,28 @@ Use `collection_type` instead of `connection_type` to define your type:
   def fruits(page: nil, limit: nil)
     ::Fruit.page(page).per(limit)
   end
+```
+
+### With Resolvers
+
+You can also use `collection_type` with GraphQL resolvers:
+
+```ruby
+module Resolvers
+  class FruitsResolver < GraphQL::Schema::Resolver
+    type Types::FruitType.collection_type, null: false
+
+    argument :page, Integer, required: false
+    argument :limit, Integer, required: false
+
+    def resolve(page: nil, limit: nil)
+      ::Fruit.page(page).per(limit)
+    end
+  end
+end
+
+# In your query type
+field :fruits, resolver: Resolvers::FruitsResolver
 ```
 
 Value returned by query resolver must be a kaminari object or implements its page scope methods (`current_page`, `limit_value`, `total_count`, `total_pages`).
@@ -141,6 +165,56 @@ end
 
 field :fruits, Types::FruitType.collection_type(metadata_type: MyMetadataType)
 ```
+
+## Complexity Calculation
+
+To prevent loading too much data, GraphQL supports complexity calculation. This gem provides the `GraphqlPagination::CollectionField` module that can be prepended to your base field class to automatically calculate complexity for collection type fields.
+
+The complexity calculation takes into account:
+- The page size (from `limit` or `per` argument)
+- Metadata fields requested
+- Collection fields requested
+- Nested fields within collection items
+
+### Usage
+
+First, create a base field class and prepend the `GraphqlPagination::CollectionField` module:
+
+```ruby
+class Types::BaseField < GraphQL::Schema::Field
+  prepend GraphqlPagination::CollectionField
+end
+```
+
+Then configure your base object to use this field class:
+
+```ruby
+class Types::BaseObject < GraphQL::Schema::Object
+  field_class Types::BaseField
+end
+```
+
+Now all fields that return collection types will automatically have complexity calculation:
+
+```ruby
+class Types::QueryType < Types::BaseObject
+  field :fruits, Types::FruitType.collection_type, null: true do
+    argument :page, Integer, required: false
+    argument :limit, Integer, required: false
+  end
+
+  def fruits(page: nil, limit: nil)
+    ::Fruit.page(page).per(limit)
+  end
+end
+```
+
+The complexity will be calculated as:
+```
+1 (field itself) + (page_size * items_complexity) + metadata_complexity + collection_complexity
+```
+
+If no `limit` or `per` argument is provided, it will use the schema's default page size or fall back to 25 (Kaminari's default).
 
 ## Contributing
 
