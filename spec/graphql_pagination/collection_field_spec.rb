@@ -2,7 +2,7 @@ RSpec.describe GraphqlPagination::CollectionField do
   let(:test_query_type) do
     Class.new(GraphQL::Schema::Object) do
       graphql_name 'Query'
-      
+
       field :fruits, FruitType.collection_type, null: true do
         argument :page, Integer, required: false
         argument :limit, Integer, required: false
@@ -35,7 +35,7 @@ RSpec.describe GraphqlPagination::CollectionField do
         Class.new(GraphQL::Schema::Object) do
           graphql_name 'Query'
           field_class field_class
-          
+
           field :fruits, FruitType.collection_type, null: true do
             argument :page, Integer, required: false
             argument :limit, Integer, required: false
@@ -120,7 +120,7 @@ RSpec.describe GraphqlPagination::CollectionField do
         query_type = test_query_type_with_base_field
         low_complexity_schema = Class.new(GraphQL::Schema) do
           query query_type
-          max_complexity 10  # Very low limit
+          max_complexity 10 # Very low limit
         end
 
         query = <<~GRAPHQL
@@ -163,7 +163,7 @@ RSpec.describe GraphqlPagination::CollectionField do
         owner: test_query_type,
         null: true
       )
-      
+
       expect(field.collection_type?).to be true
     end
 
@@ -174,7 +174,7 @@ RSpec.describe GraphqlPagination::CollectionField do
         owner: test_query_type,
         null: true
       )
-      
+
       expect(field.collection_type?).to be false
     end
   end

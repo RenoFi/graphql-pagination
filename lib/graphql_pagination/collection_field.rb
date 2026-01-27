@@ -2,7 +2,7 @@ module GraphqlPagination
   module CollectionField
     # Check if the field returns a collection type
     def collection_type?
-      if @return_type_expr&.respond_to?(:graphql_name)
+      if @return_type_expr.respond_to?(:graphql_name)
         @return_type_expr.graphql_name.end_with?('Collection')
       else
         false
@@ -15,24 +15,24 @@ module GraphqlPagination
     def calculate_complexity(query:, nodes:, child_complexity:)
       if collection_type?
         arguments = query.arguments_for(nodes.first, self)
-        
+
         # Get the page size from the `limit` or `per` argument
         # Default to a reasonable value if not provided
         max_possible_page_size = arguments[:limit] || arguments[:per]
-        
+
         if max_possible_page_size.nil?
           # Use schema defaults or a reasonable default
           # Note: default_page_size, max_page_size are GraphQL::Schema::Field methods
           # query.schema.default_page_size and query.schema.default_max_page_size are schema-level configs
-          max_possible_page_size = default_page_size || 
-                                   query.schema.default_page_size || 
-                                   max_page_size || 
-                                   query.schema.default_max_page_size || 
+          max_possible_page_size = default_page_size ||
+                                   query.schema.default_page_size ||
+                                   max_page_size ||
+                                   query.schema.default_max_page_size ||
                                    25 # Reasonable default for kaminari
         end
 
         metadata_complexity = 0
-        lookahead = GraphQL::Execution::Lookahead.new(query: query, field: self, ast_nodes: nodes, owner_type: owner)
+        lookahead = GraphQL::Execution::Lookahead.new(query:, field: self, ast_nodes: nodes, owner_type: owner)
 
         # Calculate metadata complexity
         if (metadata_lookahead = lookahead.selection(:metadata)).selected?
@@ -49,7 +49,7 @@ module GraphqlPagination
         # Calculate items complexity
         # Subtract metadata and collection field complexity from child complexity
         items_complexity = child_complexity - metadata_complexity - nodes_edges_complexity
-        
+
         # Apply complexity: 1 (this field) + (page_size * items) + metadata + collection
         1 + (max_possible_page_size * items_complexity) + metadata_complexity + nodes_edges_complexity
       else
