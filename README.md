@@ -31,6 +31,31 @@ Use `collection_type` instead of `connection_type` to define your type:
 
 Value returned by query resolver must be a kaminari object or implements its page scope methods (`current_page`, `limit_value`, `total_count`, `total_pages`).
 
+## Paginated Field Helper
+
+For a less verbose way to define paginated fields, use the `paginated_field` helper:
+
+```ruby
+  paginated_field :fruits, Types::FruitType.collection_type, null: true
+
+  def fruits(page: nil, per: nil)
+    ::Fruit.page(page).per(per)
+  end
+```
+
+This automatically adds `page` and `per` arguments (both optional) to the field. You can also add additional arguments using a block:
+
+```ruby
+  paginated_field :fruits, Types::FruitType.collection_type, null: true do
+    argument :where, String, required: false
+    argument :order, String, required: false
+  end
+
+  def fruits(page: nil, per: nil, where: nil, order: nil)
+    ::Fruit.page(page).per(per)
+  end
+```
+
 ## GraphQL query
 
 ```graphql
