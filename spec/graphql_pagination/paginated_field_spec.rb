@@ -15,7 +15,7 @@ RSpec.describe GraphqlPagination::PaginatedField do
           FruitModel.all.page(page).per(per)
         end
 
-        def vegetables(page: nil, per: nil, where: nil, order: nil)
+        def vegetables(page: nil, per: nil, **)
           VegetableModel.all.page(page).per(per)
         end
       end
