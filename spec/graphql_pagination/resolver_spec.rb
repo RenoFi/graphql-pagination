@@ -59,10 +59,10 @@ RSpec.describe 'resolver spec' do
     end
   end
 
-  context 'schema introspection' do
+  describe 'schema introspection' do
     it 'includes collection and metadata fields in resolver type' do
       schema_definition = TestSchema.to_definition
-      
+
       expect(schema_definition).to include('berriesResolver')
       expect(schema_definition).to include('BerryCollection')
       expect(schema_definition).to include('collection: [Berry!]!')
