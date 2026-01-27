@@ -22,6 +22,8 @@ module GraphqlPagination
         
         if max_possible_page_size.nil?
           # Use schema defaults or a reasonable default
+          # Note: default_page_size, max_page_size are GraphQL::Schema::Field methods
+          # query.schema.default_page_size and query.schema.default_max_page_size are schema-level configs
           max_possible_page_size = default_page_size || 
                                    query.schema.default_page_size || 
                                    max_page_size || 
