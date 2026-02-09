@@ -37,7 +37,7 @@ GEM
     drb (2.2.3)
     erb (6.0.1)
     fiber-storage (1.0.1)
-    graphql (2.5.18)
+    graphql (2.5.19)
       base64
       fiber-storage
       logger
