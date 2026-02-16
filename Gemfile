@@ -9,7 +9,7 @@ gem 'ostruct'
 gem 'pry'
 gem 'rake'
 gem 'rspec'
-gem 'rubocop'
+gem 'rubocop', '1.84.1'
 gem 'rubocop-rake'
 gem 'rubocop-rspec'
 
