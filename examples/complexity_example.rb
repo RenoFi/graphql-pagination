@@ -3,9 +3,9 @@
 # This example demonstrates how to use the CollectionField module
 # to automatically calculate complexity for collection type fields.
 
-require 'bundler/setup'
-require 'graphql-pagination'
-require 'kaminari/core'
+require "bundler/setup"
+require "graphql-pagination"
+require "kaminari/core"
 
 # Sample data model
 class User
@@ -89,26 +89,26 @@ GRAPHQL
 puts "Example 1: Simple query with limit: 5"
 puts "=" * 50
 result = ExampleSchema.execute(simple_query)
-if result['errors']
-  puts "Errors: #{result['errors']}"
+if result["errors"]
+  puts "Errors: #{result["errors"]}"
 else
-  puts "Success! Retrieved #{result['data']['users']['collection'].size} users"
-  puts "Current Page: #{result['data']['users']['metadata']['currentPage']}"
-  puts "Total Pages: #{result['data']['users']['metadata']['totalPages']}"
+  puts "Success! Retrieved #{result["data"]["users"]["collection"].size} users"
+  puts "Current Page: #{result["data"]["users"]["metadata"]["currentPage"]}"
+  puts "Total Pages: #{result["data"]["users"]["metadata"]["totalPages"]}"
 end
 
 puts "\n"
 puts "Example 2: Complex query with limit: 50"
 puts "=" * 50
 result = ExampleSchema.execute(complex_query)
-if result['errors']
-  puts "Errors: #{result['errors']}"
+if result["errors"]
+  puts "Errors: #{result["errors"]}"
 else
-  puts "Success! Retrieved #{result['data']['users']['collection'].size} users"
-  puts "Current Page: #{result['data']['users']['metadata']['currentPage']}"
-  puts "Total Pages: #{result['data']['users']['metadata']['totalPages']}"
-  puts "Total Count: #{result['data']['users']['metadata']['totalCount']}"
-  puts "Limit Value: #{result['data']['users']['metadata']['limitValue']}"
+  puts "Success! Retrieved #{result["data"]["users"]["collection"].size} users"
+  puts "Current Page: #{result["data"]["users"]["metadata"]["currentPage"]}"
+  puts "Total Pages: #{result["data"]["users"]["metadata"]["totalPages"]}"
+  puts "Total Count: #{result["data"]["users"]["metadata"]["totalCount"]}"
+  puts "Limit Value: #{result["data"]["users"]["metadata"]["limitValue"]}"
 end
 
 puts "\n"

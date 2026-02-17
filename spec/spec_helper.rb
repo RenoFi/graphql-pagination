@@ -1,12 +1,12 @@
-require 'bundler/setup'
-require 'pry'
+require "bundler/setup"
+require "pry"
 
-require 'ostruct'
-require 'active_support'
-require 'active_support/core_ext'
+require "ostruct"
+require "active_support"
+require "active_support/core_ext"
 
-require 'graphql-pagination'
-require 'kaminari/core'
+require "graphql-pagination"
+require "kaminari/core"
 
 RSpec.configure do |config|
   config.disable_monkey_patching!

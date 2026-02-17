@@ -1,7 +1,7 @@
 RSpec.describe GraphqlPagination::CollectionField do
   let(:test_query_type) do
     Class.new(GraphQL::Schema::Object) do
-      graphql_name 'Query'
+      graphql_name "Query"
 
       field :fruits, FruitType.collection_type, null: true do
         argument :page, Integer, required: false
@@ -22,8 +22,8 @@ RSpec.describe GraphqlPagination::CollectionField do
     end
   end
 
-  describe 'complexity calculation' do
-    context 'when using a BaseField with CollectionField module' do
+  describe "complexity calculation" do
+    context "when using a BaseField with CollectionField module" do
       let(:base_field_class) do
         Class.new(GraphQL::Schema::Field) do
           prepend GraphqlPagination::CollectionField
@@ -33,7 +33,7 @@ RSpec.describe GraphqlPagination::CollectionField do
       let(:test_query_type_with_base_field) do
         field_class = base_field_class
         Class.new(GraphQL::Schema::Object) do
-          graphql_name 'Query'
+          graphql_name "Query"
           field_class field_class
 
           field :fruits, FruitType.collection_type, null: true do
@@ -55,7 +55,7 @@ RSpec.describe GraphqlPagination::CollectionField do
         end
       end
 
-      it 'calculates complexity based on limit argument' do
+      it "calculates complexity based on limit argument" do
         query = <<~GRAPHQL
           {
             fruits(limit: 10) {
@@ -72,12 +72,12 @@ RSpec.describe GraphqlPagination::CollectionField do
         GRAPHQL
 
         result = test_schema_with_base_field.execute(query)
-        expect(result.to_h['errors']).to be_nil
-        expect(result.to_h['data']).not_to be_nil
-        expect(result.to_h['data']['fruits']).not_to be_nil
+        expect(result.to_h["errors"]).to be_nil
+        expect(result.to_h["data"]).not_to be_nil
+        expect(result.to_h["data"]["fruits"]).not_to be_nil
       end
 
-      it 'uses default page size when no limit is provided' do
+      it "uses default page size when no limit is provided" do
         query = <<~GRAPHQL
           {
             fruits {
@@ -93,12 +93,12 @@ RSpec.describe GraphqlPagination::CollectionField do
         GRAPHQL
 
         result = test_schema_with_base_field.execute(query)
-        expect(result.to_h['errors']).to be_nil
-        expect(result.to_h['data']).not_to be_nil
-        expect(result.to_h['data']['fruits']).not_to be_nil
+        expect(result.to_h["errors"]).to be_nil
+        expect(result.to_h["data"]).not_to be_nil
+        expect(result.to_h["data"]["fruits"]).not_to be_nil
       end
 
-      it 'handles queries without metadata' do
+      it "handles queries without metadata" do
         query = <<~GRAPHQL
           {
             fruits(limit: 5) {
@@ -110,12 +110,12 @@ RSpec.describe GraphqlPagination::CollectionField do
         GRAPHQL
 
         result = test_schema_with_base_field.execute(query)
-        expect(result.to_h['errors']).to be_nil
-        expect(result.to_h['data']).not_to be_nil
-        expect(result.to_h['data']['fruits']).not_to be_nil
+        expect(result.to_h["errors"]).to be_nil
+        expect(result.to_h["data"]).not_to be_nil
+        expect(result.to_h["data"]["fruits"]).not_to be_nil
       end
 
-      it 'prevents queries that exceed complexity limits' do
+      it "prevents queries that exceed complexity limits" do
         # Create a schema with very low complexity limit
         query_type = test_query_type_with_base_field
         low_complexity_schema = Class.new(GraphQL::Schema) do
@@ -149,14 +149,14 @@ RSpec.describe GraphqlPagination::CollectionField do
     end
   end
 
-  describe '#collection_type?' do
+  describe "#collection_type?" do
     let(:base_field_class) do
       Class.new(GraphQL::Schema::Field) do
         prepend GraphqlPagination::CollectionField
       end
     end
 
-    it 'returns true for collection type fields' do
+    it "returns true for collection type fields" do
       field = base_field_class.new(
         name: :fruits,
         type: FruitType.collection_type,
@@ -167,7 +167,7 @@ RSpec.describe GraphqlPagination::CollectionField do
       expect(field.collection_type?).to be true
     end
 
-    it 'returns false for non-collection type fields' do
+    it "returns false for non-collection type fields" do
       field = base_field_class.new(
         name: :fruit,
         type: FruitType,
