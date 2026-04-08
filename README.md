@@ -82,9 +82,30 @@ This automatically adds `page` and `per` arguments (both optional) to the field.
 
 ## GraphQL query
 
+When using manual field definitions (with `limit` argument):
+
 ```graphql
 {
   fruits(page: 2, limit: 2) {
+    collection {
+      id
+      name
+    }
+    metadata {
+      totalPages
+      totalCount
+      currentPage
+      limitValue
+    }
+  }
+}
+```
+
+When using the `paginated_field` helper (with `per` argument):
+
+```graphql
+{
+  fruits(page: 2, per: 2) {
     collection {
       id
       name
@@ -215,6 +236,16 @@ The complexity will be calculated as:
 ```
 
 If no `limit` or `per` argument is provided, it will use the schema's default page size or fall back to 25 (Kaminari's default).
+
+To enforce complexity limits, set `max_complexity` on your schema:
+
+```ruby
+class MySchema < GraphQL::Schema
+  max_complexity 200
+end
+```
+
+Queries exceeding this threshold will be rejected before execution.
 
 ## Contributing
 
