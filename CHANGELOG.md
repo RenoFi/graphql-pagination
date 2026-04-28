@@ -1,5 +1,11 @@
 ## [Unreleased]
 
+## [2.6.0] - 2026-04-28
+
+### Changed
+- Mark `CollectionMetadataType` as `@shareable` under Federation 2 (#253)
+- Bump graphql from 2.5.23 to 2.6.0 (#252)
+
 ## [2.5.0] - 2026-04-08
 
 ### Added
