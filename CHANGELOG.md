@@ -1,5 +1,10 @@
 ## [Unreleased]
 
+## [2.6.1] - 2026-04-28
+
+### Fixed
+- Defer `CollectionMetadataType` load so the Federation 2 `@shareable` conditional fires correctly (#254)
+
 ## [2.6.0] - 2026-04-28
 
 ### Changed
