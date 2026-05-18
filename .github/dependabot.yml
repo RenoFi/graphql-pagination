@@ -6,10 +6,49 @@ updates:
     schedule:
       interval: "weekly"
       day: "monday"
-      time: "08:00"
+      time: "11:00"
       timezone: "UTC"
+    cooldown:
+      default-days: 2
+      include:
+        - "*"
     commit-message:
       prefix: "[dependabot]"
+    groups:
+      ruby-minor-and-patch:
+        applies-to: version-updates
+        update-types:
+          - "minor"
+          - "patch"
     labels:
-      - "automerge"
       - "dependencies"
+      - "automerge"
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-major"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "11:00"
+      timezone: "UTC"
+    cooldown:
+      default-days: 2
+    commit-message:
+      prefix: "[dependabot]"
+    groups:
+      actions-minor-and-patch:
+        applies-to: version-updates
+        update-types:
+          - "minor"
+          - "patch"
+    labels:
+      - "dependencies"
+      - "automerge"
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-major"
