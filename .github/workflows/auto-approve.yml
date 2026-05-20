@@ -8,7 +8,8 @@ jobs:
     if: >
       github.actor == 'renofidev' ||
       contains(github.event.pull_request.labels.*.name, 'HOTFIX-AUTO-APPROVE') ||
-      contains(github.event.pull_request.labels.*.name, 'self-approve')
+      contains(github.event.pull_request.labels.*.name, 'self-approve') ||
+      contains(github.event.pull_request.labels.*.name, 'dependencies')
     runs-on: ubuntu-latest
     steps:
       - uses: hmarr/auto-approve-action@f0939ea97e9205ef24d872e76833fa908a770363 # v4.0.0
