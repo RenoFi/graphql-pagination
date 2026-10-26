@@ -24,9 +24,20 @@ jobs:
       contains(github.event.pull_request.labels.*.name, 'automerge') &&
       !contains(github.event.pull_request.labels.*.name, 'automerge blocked')
     runs-on: ubuntu-latest
+    concurrency:
+      group: automerge-labeled-${{ github.event.pull_request.number }}
     steps:
+      # auto-approve can approve the PR between gh reading its state and
+      # calling enablePullRequestAutoMerge. Once the PR already satisfies
+      # branch protection, that call fails with "Pull request is in unstable
+      # status". A retry lets gh re-read the state and merge directly, which
+      # is what gh already does for CLEAN/UNSTABLE PRs.
       - name: Enable auto-merge
-        run: gh pr merge --auto --squash --delete-branch "$PR_URL"
+        run: |
+          gh pr merge --auto --squash --delete-branch "$PR_URL" || {
+            sleep 5
+            gh pr merge --auto --squash --delete-branch "$PR_URL"
+          }
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
