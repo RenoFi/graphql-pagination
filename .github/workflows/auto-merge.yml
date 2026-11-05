@@ -12,6 +12,9 @@ on:
   check_suite:
     types:
       - completed
+  # Semaphore reports CI as commit statuses, not check suites, so its
+  # suites never complete. A status on main means main moved.
+  status: {}
 
 permissions:
   contents: write
@@ -72,8 +75,12 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   automerge-update-branch:
-    if: github.event_name == 'check_suite'
+    if: >
+      github.event_name == 'check_suite' ||
+      (github.event_name == 'status' && github.event.state != 'pending')
     runs-on: ubuntu-latest
+    concurrency:
+      group: automerge-update-branch
     steps:
       - name: Update branches behind base
         env:
